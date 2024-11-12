@@ -1,0 +1,160 @@
+body { 
+   margin: 0;
+   overflow: hidden; /* Prevent scrollbars */
+   background-color: #000; /* Black background for the entire page */
+   height: 100vh; /
+}
+
+#scene-container { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center contents */
+    overflow: hidden;
+    background-color: #000;
+    z-index: 1; /* Above stars background */
+}
+.stars {
+    position: fixed; /* Fixed to stay in the background */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: moveStars 100s linear infinite;
+    pointer-events: none;
+    z-index: 0; /* Ensure stars are in the background */
+}
+
+/* Animation for stars */
+@keyframes moveStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+
+.scrolling-text {
+    display: inline-block; /* Ensure the text is treated as inline for animation */
+    padding: 40px; /* Add padding for spacing */
+    font-size: 2.5em; /* Font size */
+    animation: scrollText 10s linear infinite; /* Animation properties */
+    color: aliceblue;
+    font-family: fantasy;
+}
+
+
+/* Keyframes for scrolling animation */
+@keyframes scrollText {
+    from {
+        transform: translateX(100%); /* Start position (off-screen right) */
+    }
+    to {
+        transform: translateX(-100%); /* End position (off-screen left) */
+    }
+}
+
+
+
+.title {
+    color: rgba(236, 235, 233, 0.938);
+    /*font-size: 1rem;
+    /*font-family: monospace;*/
+    font-size: calc(0.65rem + .9vw);
+    --tw-text-opacity: 1;
+    color: rgb(113 113 122 / var(--tw-text-opacity));
+    text-align: center;
+    margin-bottom: 10px; /* Adds spacing between the title and the button */
+}
+
+.cont_title {
+    position: absolute;
+    bottom: 30px;
+    width: 50%;
+    color: antiquewhite;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column; /* Stack title and button vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within the title */
+    left: 50%; /* Center the container itself horizontally */
+    transform: translateX(-50%); /* Adjust position to be truly centered */
+}
+
+.cont_title button {
+    color: white; /* White font color */
+    border: 1px solid rgb(59, 58, 58); /* White border */
+   /* border-radius: 25px; /* Rounded corners for oval shape */
+    padding: 10px 30px; /* Padding around the text */
+    font-size: 1rem; /* Adjust the font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0px 4px 6px rgba(3, 157, 228, 0.3); /* Shadow at the bottom */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    outline: none; /* Remove default outline */
+    --bs-bg-opacity: 1;
+    background-color: transparent !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    border-radius: 9999px;
+}
+
+
+.cont_title button:hover {
+    color: #f0f0f0; /* Slightly lighter font color on hover */
+    box-shadow: 0px 6px 10px rgba(4, 230, 53, 0.5); /* Enhance shadow on hover */
+    background-color: rgba(168, 163, 163, 0.1); /* Slight background color change on hover */
+}
+
+.cont_title button a {
+    color: inherit; /* Inherit color from parent element */
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .scrolling-text {
+        white-space: nowrap; 
+        overflow: hidden; 
+    }
+    
+    
+
+
+
+}
+
+/* For all phones */
+@media screen and (max-width: 480px) {
+    /* Styles for phones */
+    
+    cont_title {
+        width: 23px;
+    }
+
+    .cont_title button {
+        cursor: pointer;
+        padding: 0px 0px;
+        border-radius: 9999px;
+    }
+
+    .cont_title button:hover {
+        color: #f0f0f0; /* Slightly lighter font color on hover */
+        box-shadow: 0px 6px 10px rgba(4, 230, 53, 0.5); /* Enhance shadow on hover */
+        background-color: rgba(168, 163, 163, 0.1); /* Slight background color change on hover */
+    }
+    .title {
+        color: #e9ecef;
+        width: 116%;
+    }
+
+}
